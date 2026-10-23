@@ -60,7 +60,7 @@ jobs:
         run: php artisan migrate --force
 
       - name: Run PHPStan
-        run: vendor/bin/phpstan analyse --memory-limit=1G
+        run: vendor/bin/phpstan analyse app/ --memory-limit=1G
 
       - name: Run PHP Insights
         run: |
