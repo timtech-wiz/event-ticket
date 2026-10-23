@@ -44,8 +44,8 @@ jobs:
           extensions: mbstring, pdo_mysql
           coverage: none
 
-      - name: Copy CI environment
-        run: cp .env.ci .env
+      - name: Prepare CI environment
+        run: cp .env.example .env
 
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist
