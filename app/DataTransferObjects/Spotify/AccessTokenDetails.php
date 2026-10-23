@@ -1,15 +1,14 @@
 <?php
 
 namespace App\DataTransferObjects\Spotify;
-use DateTimeImmutable;
 
+use DateTimeImmutable;
 
 final readonly class AccessTokenDetails
 {
-
     public function __construct(
-    public string $accessToken,
-    public string $refreshToken,
-    public DateTimeImmutable $expiresAt
-    ) { }
+        public string $accessToken,
+        public string $refreshToken,
+        public DateTimeImmutable $expiresAt
+    ) {}
 }

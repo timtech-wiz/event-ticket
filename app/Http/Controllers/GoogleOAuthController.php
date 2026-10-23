@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
-use Illuminate\Support\Str;
 
 class GoogleOAuthController extends Controller
 {
@@ -57,13 +56,12 @@ class GoogleOAuthController extends Controller
                 return redirect()
                     ->route('login')
                     ->withErrors([
-                        'google' => 'An account with this email already exists. '
-                            . 'Sign in with your password first, then link Google.',
+                        'google' => 'An account with this email already exists. Sign in with your password first, then link Google.',
                     ]);
             }
 
             $user = User::create([
-                'name' => $googleUser->getName() ?: $email,
+                'name' => $googleUser->getName() ?? $email,
                 'email' => $email,
                 'google_id' => $googleId,
                 'password' => Str::random(40),

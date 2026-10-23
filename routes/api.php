@@ -11,7 +11,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-
 // Route::apiResource('event', EventsController::class);
 // Route::apiResource('tickets', TicketController::class)->except(["index"]);
 
@@ -20,7 +19,4 @@ Route::get('/user', function (Request $request) {
 
 // Route::get('ticket/{event}', [TicketController::class, "index"]);
 
-
-
 Route::post('/tickets/purchase', [TicketPurchaseController::class, 'store']);
-

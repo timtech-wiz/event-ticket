@@ -2,7 +2,6 @@
 
 namespace App\DataTransferObjects\Spotify;
 
-
 final readonly class Artist
 {
     public function __construct(

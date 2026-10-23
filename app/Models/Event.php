@@ -12,14 +12,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug;
-
+    use HasFactory, HasSlug, SoftDeletes;
 
     protected $guarded = [];
 
-
     protected $attributes = [
-        'status' => 'draft'
+        'status' => 'draft',
     ];
 
     public function tickets(): HasMany
@@ -27,7 +25,7 @@ class Event extends Model
         return $this->hasMany(Ticket::class);
     }
 
-    public function oldestEvent():HasOne
+    public function oldestEvent(): HasOne
     {
         return $this->hasOne(Ticket::class)->latestOfMany();
     }

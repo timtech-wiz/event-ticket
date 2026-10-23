@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->string("slug")->nullable();
+            $table->string('slug')->nullable();
         });
 
         Schema::table('tickets', function (Blueprint $table) {
-            $table->string("slug")->nullable();
+            $table->string('slug')->nullable();
         });
     }
 
@@ -26,10 +26,10 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('events', function (Blueprint $table) {
-            $table->dropColumn("slug");
+            $table->dropColumn('slug');
         });
         Schema::table('tickets', function (Blueprint $table) {
-            $table->dropColumn("slug");
+            $table->dropColumn('slug');
         });
     }
 };

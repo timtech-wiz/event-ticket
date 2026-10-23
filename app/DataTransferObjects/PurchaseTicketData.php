@@ -8,6 +8,5 @@ final class PurchaseTicketData
         public readonly int $ticket_id,
         public readonly int $user_id,
         public readonly int $quantity,
-    ) {
-    }
+    ) {}
 }

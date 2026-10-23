@@ -21,15 +21,15 @@ class UpsertEventAction
         // return $event;
 
         return Event::updateOrCreate(
-            ["id" => $event->id],
+            ['id' => $event->id],
             [
-                 "title" => $eventData->title,
-                 "description" => $eventData->description,
-                 "start_at" => $eventData->start_at,
-                 "end_at" => $eventData->end_at,
-                 "location" => $eventData->location,
-                 "total_seats" => $eventData->total_seats,
+                'title' => $eventData->title,
+                'description' => $eventData->description,
+                'start_at' => $eventData->start_at,
+                'end_at' => $eventData->end_at,
+                'location' => $eventData->location,
+                'total_seats' => $eventData->total_seats,
             ]
-            );
+        );
     }
 }

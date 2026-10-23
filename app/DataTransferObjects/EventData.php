@@ -12,7 +12,7 @@ final class EventData
         public readonly ?string $location,
         public readonly int $total_seats,
         public readonly int $available_seats,
-        
+
     ) {
         //
     }

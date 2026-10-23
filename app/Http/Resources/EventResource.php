@@ -12,7 +12,7 @@ class EventResource extends JsonResource
      *
      * @return array<string, mixed>
      */
-    public function toArray(Request $request): array
+    public function toArray(): array
     {
         return [
             'id' => $this->id,
@@ -25,7 +25,7 @@ class EventResource extends JsonResource
             'location' => $this->location,
             'created_at' => $this->created_at?->toISOString(),
             'updated_at' => $this->updated_at?->toISOString(),
-            'tickets' => $this->whenLoaded("oldestEvent")
+            'tickets' => $this->whenLoaded('oldestEvent'),
         ];
     }
 }

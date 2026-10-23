@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Collection;
 
 class EventCollection extends Collection
 {
-
     public function published(): static
     {
         return $this->filter(

@@ -10,6 +10,6 @@ final class TicketData
         public readonly float $price,
         public readonly int $quantity,
     ) {
-        //
+        
     }
 }

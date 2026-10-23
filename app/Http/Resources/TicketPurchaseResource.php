@@ -7,7 +7,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TicketPurchaseResource extends JsonResource
 {
-    public function toArray(Request $request): array
+    public function toArray(): array
     {
         return [
             'id' => $this->id,

@@ -12,11 +12,12 @@ use Illuminate\Notifications\Notifiable;
 
 #[Fillable(['name', 'email', 'password', 'google_id'])]
 #[Hidden([
-    'password', 
+    'password',
     'remember_token',
     'spotify_access_token',
     'spotify_refresh_token',
-    'spotify_expires_at'])
+    'spotify_expires_at'
+    ])
 ]
 class User extends Authenticatable
 {
@@ -42,11 +43,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        
+
     ];
 
-
-     public function updateSpotifyOAuthDetails(
+    public function updateSpotifyOAuthDetails(
         string $accessToken,
         string $refreshToken,
         \DateTimeImmutable $expiresAt
@@ -54,15 +54,14 @@ class User extends Authenticatable
         $this->spotify_access_token = $accessToken;
         $this->spotify_refresh_token = $refreshToken;
         $this->spotify_expires_at = $expiresAt;
- 
+
         $this->save();
     }
- 
+
     public function isConnectedToSpotify(): bool
     {
         return $this->spotify_access_token
             && $this->spotify_refresh_token
             && $this->spotify_expires_at;
     }
-
 }

@@ -2,8 +2,8 @@
 
 namespace App\Collections\GitHub;
 
-use Illuminate\Support\Collection;
 use App\DataTransferObjects\GitHub\Repo;
+use Illuminate\Support\Collection;
 
 /** @extends Collection<int,Repo> */
 class RepoCollection extends Collection

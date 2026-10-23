@@ -37,12 +37,12 @@ return [
 
     'github' => [
         'token' => env('GITHUB_TOKEN'),
-        ],
+    ],
 
     'spotify' => [
-            'client_id' => env('SPOTIFY_CLIENT_ID'),
-            'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
-        ],
+        'client_id' => env('SPOTIFY_CLIENT_ID'),
+        'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
+    ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
@@ -50,4 +50,3 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
 ];
-

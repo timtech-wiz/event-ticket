@@ -20,7 +20,7 @@ class PurchaseTicketAction
         return DB::transaction(function () use ($data) {
 
             $ticket = Ticket::whereKey($data->ticket_id)
-                //->lockForUpdate()
+                // ->lockForUpdate()
                 ->firstOrFail();
 
             $available = $ticket->quantity - $ticket->quantity_sold;
@@ -43,16 +43,17 @@ class PurchaseTicketAction
             $pipes = [
                 ApplyDiscount::class,
                 AddVat::class,
-                AddShipping::class
+                AddShipping::class,
             ];
 
             $ticketPuchased = app(Pipeline::class)
                 ->send($ticketPuchased)
                 ->through($pipes)
-                ->then(function(TicketPurchase $ticketPurchase){
+                ->then(function (TicketPurchase $ticketPurchase) {
                     $ticketPurchase->save();
+
                     return $ticketPurchase;
-            });
+                });
         });
     }
 }

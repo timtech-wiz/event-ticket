@@ -18,16 +18,16 @@ class EventsController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        //$events = Event::latest()->paginate(10);
+        // $events = Event::latest()->paginate(10);
         $events = Event::query()
-        ->with("oldestEvent")
-        ->when($request->search, function ($query) use ($request) {
-            $query->where('title', 'LIKE', '%' . $request->search . '%');
-        })
-        ->latest()
-        ->paginate(10);
+            ->with('oldestEvent')
+            ->when($request->search, function ($query) use ($request) {
+                $query->where('title', 'LIKE', '%'.$request->search.'%');
+            })
+            ->latest()
+            ->paginate(10);
 
-        //$events = Event::find([1,2,3]);
+        // $events = Event::find([1,2,3]);
 
         return response()->json([
             'success' => true,
@@ -41,7 +41,8 @@ class EventsController extends Controller
      */
     public function store(UpsertEventRequest $request): JsonResponse
     {
-        $event = $this->upsert($request, new Event);
+        $event = $this->upsert($request, new Event());
+
         return response()->json([
             'success' => true,
             'message' => 'Event created successfully.',
@@ -68,6 +69,7 @@ class EventsController extends Controller
     {
 
         $event = $this->upsert($request, $event);
+
         return response()->json([
             'success' => true,
             'message' => 'Event updated successfully.',
@@ -91,9 +93,9 @@ class EventsController extends Controller
     private function upsert(
         UpsertEventRequest $request,
         Event $event
-    ):Event
-    {
+    ): Event {
         $eventData = new EventData(...$request->validated());
+
         return UpsertEventAction::execute($eventData, $event);
     }
 }
