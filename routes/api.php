@@ -12,13 +12,13 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::apiResource('event', EventsController::class);
-Route::apiResource('tickets', TicketController::class)->except(["index"]);
+// Route::apiResource('event', EventsController::class);
+// Route::apiResource('tickets', TicketController::class)->except(["index"]);
 
-Route::get('github/{owner}/{repo}', [GitHubController::class, "show"]);
-Route::get('github/{owner}/{repo}/languages', [GitHubController::class, "getLanguages"]);
+// Route::get('github/{owner}/{repo}', [GitHubController::class, "show"]);
+// Route::get('github/{owner}/{repo}/languages', [GitHubController::class, "getLanguages"]);
 
-Route::get('ticket/{event}', [TicketController::class, "index"]);
+// Route::get('ticket/{event}', [TicketController::class, "index"]);
 
 
 

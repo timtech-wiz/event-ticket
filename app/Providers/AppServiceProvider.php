@@ -13,12 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(
-            abstract: GitHub::class,
-            concrete: fn (): GitHub => new GitHubService(
-            token: config('services.github.token'),
-            ),
-        );
     }
 
     /**
