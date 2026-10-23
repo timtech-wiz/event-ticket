@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Providers;
+
+use App\Interfaces\GitHub;
+use App\Services\GitHub\GitHubService;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        $this->app->bind(
+            abstract: GitHub::class,
+            concrete: fn (): GitHub => new GitHubService(
+            token: config('services.github.token'),
+            ),
+        );
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        //
+    }
+}
